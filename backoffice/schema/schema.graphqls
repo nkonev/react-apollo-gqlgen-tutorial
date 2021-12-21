@@ -1,0 +1,13 @@
+type Query {
+  auth: Auth!
+  user: User!
+}
+
+type Mutation {
+  authLogin(login: String!): Auth!
+  authVerifyCode(code: String!): Auth!
+}
+
+type Subscription {
+  authSubscription: Auth!
+}

@@ -1,0 +1,5 @@
+type Auth {
+    authorized: Boolean!
+    method: 	String!
+    reconnect: 	Boolean!
+}
