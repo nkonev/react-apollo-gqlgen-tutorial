@@ -18,7 +18,7 @@ import (
 
 var (
 	mb int64 = 1 << 20
-	defaultPort = "8080"
+	defaultPort = "2000"
 )
 
 func main() {
@@ -29,7 +29,6 @@ func main() {
 
 	// Инициализируем стор
 	st := store.NewStore(store.Options{})
-
 
 	srv := graph.NewServer(graph.Options{
 		Store: st,
@@ -63,8 +62,8 @@ func main() {
 	router.Use(middleware.AuthMiddleware(st))
 	router.Use(middleware.CorsMiddleware(st))
 
-	router.Handle("/", playground.Handler("GraphQL playground", "/graph"))
-	router.Handle("/graph", srv)
+	router.Handle("/", playground.Handler("GraphQL playground", "/graphql"))
+	router.Handle("/graphql", srv)
 
 
 	log.Printf("connect to http://localhost:%s/ for GraphQL playground", port)
